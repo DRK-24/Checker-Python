@@ -63,7 +63,7 @@ async def stripeM(username, numero, mes, ano, cvv):
     'Accept-Encoding': 'gzip'
   }
   
-  decode_r = session.get(url, headers=headers, proxies=proxie).text 
+  decode_r = session.get(url, headers=headers).text 
   
   result = json.loads(decode_r)
   id = result['id']
@@ -114,7 +114,7 @@ async def stripeM(username, numero, mes, ano, cvv):
 
   }
   
-  final = session.post(url2, headers=h2, data=data, proxies=proxie).json()
+  final = session.post(url2, headers=h2, data=data).json()
   asyncio.sleep(2)
   end = time.time()
   tiempo = str(inicio - end)[1:5]
